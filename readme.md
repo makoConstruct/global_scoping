@@ -6,9 +6,9 @@ The main problem with mutable global state is that changes from one unit of code
 
 Implicit parameters are a kind of nice feature that some languages have, where variables or globals that are marked as `context` can be slurped up into a function call without the programmer needing to pass them explicitly. This is a genuinely important feature in situations where there are parameters that are often inherited from their context, but where the user needs to override them rarely and shouldn't have to think about them otherwise. An example would be CSS. CSS isn't a programming language, and I contend that the *reason* CSS couldn't have been implemented as part of a real programming language is because your programming languages lack a way of cascading variables implicitly from context that also allows succinctly overriding them when needed.
 
-So we can say in the worst cases the lack of implicits manifests as a severing of infeasible APIs into limited DSLs. In milder cases it manifests as a `Context ctx` parameter that you have to pass around everywhere all the time, which also results in inefficient movement or reconstruction of contextual configuration. In milder cases, it results in a perfusion of generally unimportant parameters.
+So we can say in the worst cases the lack of implicits manifests as a severing of infeasible APIs into limited DSLs. In milder cases it manifests as a `Context ctx` parameter that you have to pass around everywhere all the time (*done in Flutter, and in SwiftUI*), which also results in inefficient movement or reconstruction of contextual configuration (*it has to be stored as a persistant map*). In milder cases, it results in a perfusion of generally unimportant parameters.
 
-Implicits parameter passing looks something like this:
+Implicit parameter passing looks something like this:
 
 ```scala
 implicit b:i32 = 2
